@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built by Rainier — Direction B: Light Architectural</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1C1A18;
+      --ink-mid:   #5A5550;
+      --ink-dim:   #9A948E;
+      --bg:        #EEF2F7;
+      --bg-2:      #EDE3D5;
+      --bg-3:      #DDD0C0;
+      --stone:     #7A6E62;
+      --bronze:    #8B7355;
+      --bronze-lt: #C4A882;
+      --rule:      rgba(28,26,24,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 60px;
+      background: rgba(250,250,248,0.95);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--bronze); }
+
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 12px 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--stone); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 60px 80px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .hero-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #DDE4EE 0%, #EEF2F7 55%, #E8E0D0 100%);
+    }
+
+    .hero-photo-hint {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(28,26,24,0.15);
+      border: 1px solid rgba(28,26,24,0.08);
+      padding: 14px 28px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      position: relative;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--bronze);
+    }
+
+    .hero-headline {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--ink);
+      max-width: 780px;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--bronze);
+    }
+
+    .hero-sub {
+      position: relative;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--stone); }
+
+    .btn-ghost {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 1px solid rgba(28,26,24,0.2);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--ink);
+      padding: 48px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+
+    .stat {
+      padding: 0 40px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: #FAFAF8;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.45);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 120px 60px; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--bronze);
+    }
+
+    .section-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .section-headline em {
+      font-style: italic;
+      color: var(--bronze);
+    }
+
+    .section-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* ── ACTIVE PROJECTS ── */
+    .projects {
+      background: var(--bg-2);
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 72px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 12px 48px rgba(28,26,24,0.08);
+    }
+
+    .project-photo {
+      height: 220px;
+      background: var(--bg-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-photo-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    .project-body {
+      padding: 32px;
+    }
+
+    .project-status {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-status::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--bronze);
+      border-radius: 50%;
+    }
+
+    .project-location {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+
+    .project-detail {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-dim);
+      margin-bottom: 24px;
+    }
+
+    .project-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .project-price-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .project-price-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    /* ── TWO PATHS ── */
+    .paths {
+      background: var(--bg);
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .path {
+      padding: 100px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .path:first-child {
+      background: var(--ink);
+      color: #FAFAF8;
+    }
+
+    .path-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bronze-lt);
+    }
+
+    .path:last-child .path-eyebrow {
+      color: var(--bronze);
+    }
+
+    .path-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+
+    .path:first-child .path-headline { color: #FAFAF8; }
+    .path:last-child .path-headline { color: var(--ink); }
+
+    .path-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 380px;
+    }
+
+    .path:first-child .path-body { color: rgba(250,250,248,0.6); }
+    .path:last-child .path-body { color: var(--ink-mid); }
+
+    .btn-primary-light {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: #FAFAF8;
+      padding: 16px 36px;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary-light:hover { background: var(--bg-2); }
+
+    /* ── LEGACY ── */
+    .legacy {
+      background: var(--bg-2);
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      padding: 0;
+    }
+
+    .legacy-text {
+      padding: 100px 80px 100px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--rule);
+    }
+
+    .legacy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .legacy-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    .legacy-photo {
+      background: var(--bg-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+
+    .legacy-photo-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      border: 1px solid var(--rule);
+      padding: 12px 24px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--rule);
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .footer-brand span { color: var(--bronze); }
+
+    .footer-copy {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ink-dim);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .footer-contact a {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      nav .nav-links, nav .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 80px; }
+      .hero-left { padding: 60px 24px; border-right: none; }
+      .hero-right { grid-template-rows: 200px; }
+      .hero-right .hero-photo:last-child { display: none; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; gap: 32px; }
+      .stat { padding: 0; border-right: none; }
+      section { padding: 80px 24px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .paths { grid-template-columns: 1fr; }
+      .path { padding: 60px 24px; }
+      .legacy { grid-template-columns: 1fr; }
+      .legacy-text { padding: 60px 24px; border-right: none; }
+      .legacy-photo { min-height: 280px; }
+      footer { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-contact { align-items: center; }
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Built <span>by</span> Rainier</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#invest">Investors</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start a Conversation</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-photo-placeholder"></div>
+    <div class="hero-photo-hint">[ Hero Photography ]</div>
+    <p class="hero-eyebrow">Orlando · Winter Park · Lake Mary · Lake Nona · Windermere</p>
+    <h1 class="hero-headline">
+      Built on craft.<br /><em>Built to last.</em>
+    </h1>
+    <p class="hero-sub">
+      Three generations of builders. 22 years crafting high-end custom homes across Central Florida's most coveted neighborhoods. This is the only thing we do — and we do it at a level most builders can't touch.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Building</a>
+      <a href="#work" class="btn-ghost">View Our Work</a>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">22</div>
+      <div class="stat-label">Years Building in Central Florida</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">17+</div>
+      <div class="stat-label">Homes Currently in Pipeline</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">40+</div>
+      <div class="stat-label">Years of Combined Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Generations of Builders</div>
+    </div>
+  </div>
+
+  <!-- ACTIVE PROJECTS -->
+  <section class="projects" id="work">
+    <div class="projects-header">
+      <div>
+        <p class="section-label">Active Pipeline</p>
+        <h2 class="section-headline">What we're<br /><em>building right now.</em></h2>
+      </div>
+      <p style="font-size:13px; color:var(--ink-mid); max-width:260px; text-align:right; line-height:1.8;">
+        Active across two price tiers and three markets. Spec homes, subdivisions, and investor partnerships.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-photo">
+          <span class="project-photo-label">[ Project Photography ]</span>
+        </div>
+        <div class="project-body">
+          <p class="project-status">In Permitting</p>
+          <h3 class="project-location">Colonialtown North</h3>
+          <p class="project-detail">Orlando, FL &nbsp;·&nbsp; 3,100 sq ft</p>
+          <div class="project-price">
+            <span class="project-price-num">$1.3M</span>
+            <span class="project-price-label">List Price</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-photo">
+          <span class="project-photo-label">[ Project Photography ]</span>
+        </div>
+        <div class="project-body">
+          <p class="project-status">In Development</p>
+          <h3 class="project-location">Country Club Road</h3>
+          <p class="project-detail">Lake Mary, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $1.0M</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-photo">
+          <span class="project-photo-label">[ Project Photography ]</span>
+        </div>
+        <div class="project-body">
+          <p class="project-status">Under Construction</p>
+          <h3 class="project-location">Leesburg Estates</h3>
+          <p class="project-detail">Leesburg, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $320K</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO PATHS -->
+  <div class="paths" id="invest">
+    <div class="path">
+      <p class="path-eyebrow">For Investors</p>
+      <h3 class="path-headline">You found the lot.<br />We'll handle<br />everything else.</h3>
+      <p class="path-body">
+        Bring us a vacant lot, a teardown, or a property under contract in the markets we know — Winter Park, Windermere, Lake Nona, Colonialtown, Lake Mary. We'll walk you through exactly what it can become, what it costs, and what it sells for.
+      </p>
+      <a href="#contact" class="btn-primary-light">Let's Talk Numbers</a>
+    </div>
+
+    <div class="path">
+      <p class="path-eyebrow">For Custom Home Clients</p>
+      <h3 class="path-headline">Build the home<br />you've been<br />designing in<br />your head.</h3>
+      <p class="path-body">
+        We take on a limited number of private custom home clients each year. If you know the neighborhood, have a lot, and have a clear vision — we want to hear it. Transparent process. Straight pricing. Work that lasts.
+      </p>
+      <a href="#contact" class="btn-ghost" style="margin-top:8px; display:inline-block;">Start a Conversation</a>
+    </div>
+  </div>
+
+  <!-- LEGACY -->
+  <section class="legacy" id="story">
+    <div class="legacy-text">
+      <p class="section-label">The Rainier Story</p>
+      <blockquote class="legacy-quote">
+        "Most builders start with a license.<br />Mark Smith started with his grandfather's tools."
+      </blockquote>
+      <p class="legacy-body">
+        Charles Rainier built homes the way people used to — with patience, precision, and pride in what they left behind. His grandson Mark grew up watching, then working, then understanding. That obsession led Mark to the University of Miami on a football scholarship, a business degree, and an MBA — and then back to construction. Not because he had to. Because nothing else was worth doing at that level.
+        <br /><br />
+        Today, Mark's son Austin runs projects alongside him. Three generations of people who chose building when they could have chosen anything. That's not a selling point. That's just who we are.
+      </p>
+      <a href="#contact" class="btn-primary">Meet the Team</a>
+    </div>
+    <div class="legacy-photo">
+      <span class="legacy-photo-label">[ Family / Legacy Photography ]</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <div class="footer-copy">© 2026 Rainier Custom Homes &nbsp;·&nbsp; Central Florida</div>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
