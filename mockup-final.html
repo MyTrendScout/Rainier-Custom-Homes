@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built by Rainier — Custom Homes, Central Florida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1C1A18;
+      --ink-mid:    #5A5550;
+      --ink-dim:    #9A948E;
+      --ink-lt:     #F5F0E8;
+      --bg:         #E8E0D4;
+      --bg-2:       #DDD5C8;
+      --bg-3:       #CFC6B8;
+      --dark:       #332B22;
+      --dark-2:     #3B3229;
+      --gold:       #C4996A;
+      --gold-dim:   #8B6A46;
+      --gold-lt:    #DDB98A;
+      --rule:       rgba(28,26,24,0.1);
+      --rule-gold:  rgba(196,153,106,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 60px;
+      background: transparent;
+      transition: background 0.4s, border-color 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(232,224,212,0.96);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+
+    nav.scrolled .nav-logo { color: var(--ink); }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav.scrolled .nav-links a { color: var(--ink-mid); }
+    .nav-links a:hover { color: var(--gold); }
+    nav.scrolled .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      padding: 12px 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 60px 90px;
+      overflow: hidden;
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.97) 0%,
+          rgba(51,43,34,0.7) 35%,
+          rgba(51,43,34,0.25) 65%,
+          rgba(51,43,34,0.05) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+    }
+
+    .hero-eyebrow {
+      position: relative;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .hero-headline {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(60px, 8vw, 112px);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--ink-lt);
+      max-width: 900px;
+      margin-bottom: 36px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-bottom {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.65);
+      max-width: 420px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-gold:hover { background: var(--gold-lt); }
+
+    .btn-outline-lt {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.7);
+      border: 1px solid rgba(245,240,232,0.25);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-outline-lt:hover {
+      color: var(--ink-lt);
+      border-color: rgba(245,240,232,0.6);
+    }
+
+    .btn-dark {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+      background: var(--dark);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-dark:hover { background: var(--dark-2); }
+
+    .btn-outline-dk {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 1px solid var(--rule);
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-dk:hover {
+      color: var(--ink);
+      border-color: rgba(28,26,24,0.4);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--dark);
+      padding: 52px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid rgba(196,153,106,0.15);
+    }
+
+    .stat {
+      padding: 0 48px;
+      border-right: 1px solid rgba(196,153,106,0.12);
+    }
+
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--ink-lt);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-number span {
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+    }
+
+    /* ── SECTION BASE ── */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .section-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 4.5vw, 64px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .section-headline em {
+      font-style: italic;
+      color: var(--gold-dim);
+    }
+
+    /* ── WHO WE ARE ── */
+    .who {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .who-photo {
+      background-image:
+        linear-gradient(to right, rgba(232,224,212,0) 70%, rgba(232,224,212,1) 100%),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .who-text {
+      background: var(--bg);
+      padding: 100px 80px 100px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .who-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 480px;
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      background: var(--dark);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+    }
+
+    .pillar {
+      padding: 0 56px;
+      border-right: 1px solid rgba(196,153,106,0.1);
+    }
+
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { border-right: none; padding-right: 0; }
+
+    .pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(196,153,106,0.2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .pillar h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--ink-lt);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .pillar p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.8;
+    }
+
+    /* ── ACTIVE PROJECTS ── */
+    .projects {
+      background: var(--bg-2);
+      padding: 100px 60px;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .project-card {
+      background: var(--bg);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(51,43,34,0.15);
+    }
+
+    .project-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .project-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(51,43,34,0.6) 0%, transparent 50%);
+    }
+
+    .project-img-status {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      background: rgba(51,43,34,0.75);
+      padding: 6px 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    .project-body { padding: 32px 36px 36px; }
+
+    .project-location {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+
+    .project-detail {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-dim);
+      margin-bottom: 28px;
+    }
+
+    .project-price {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .project-price-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .project-price-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    /* ── INVESTOR QUIET ── */
+    .investor-quiet {
+      margin-top: 2px;
+      background: var(--bg-3);
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .investor-quiet p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    .investor-quiet strong {
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    /* ── LEGACY ── */
+    .legacy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 680px;
+    }
+
+    .legacy-text {
+      background: var(--dark);
+      padding: 100px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .legacy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--ink-lt);
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(196,153,106,0.2);
+    }
+
+    .legacy-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.95;
+      margin-bottom: 52px;
+    }
+
+    .legacy-photo {
+      background-image:
+        linear-gradient(to left, rgba(51,43,34,0) 60%, rgba(51,43,34,0.4) 100%),
+        url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      background: var(--bg);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .contact-left h2 em {
+      font-style: italic;
+      color: var(--gold-dim);
+    }
+
+    .contact-left p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 420px;
+    }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-field label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    .contact-field input,
+    .contact-field textarea,
+    .contact-field select {
+      background: var(--bg-2);
+      border: 1px solid var(--rule);
+      padding: 14px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .contact-field input:focus,
+    .contact-field textarea:focus,
+    .contact-field select:focus {
+      border-color: var(--gold-dim);
+    }
+
+    .contact-field textarea { height: 100px; resize: none; }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 52px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(196,153,106,0.1);
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-lt);
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(245,240,232,0.25);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .footer-contact a {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      nav .nav-links, nav .nav-cta { display: none; }
+      .hero { padding: 0 24px 60px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 48px 24px; gap: 40px; }
+      .stat { padding: 0; border-right: none; }
+      .who { grid-template-columns: 1fr; }
+      .who-photo { height: 320px; }
+      .who-text { padding: 60px 24px; }
+      .pillars { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .pillar { padding: 0; border-right: none; padding-bottom: 40px; border-bottom: 1px solid rgba(196,153,106,0.1); }
+      .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+      .projects { padding: 80px 24px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .investor-quiet { flex-direction: column; padding: 40px 24px; }
+      .legacy { grid-template-columns: 1fr; }
+      .legacy-photo { height: 360px; order: -1; }
+      .legacy-text { padding: 60px 24px; }
+      .contact-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+      .contact-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+      .footer-contact { align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#top" class="nav-logo">Built <span>by</span> Rainier</a>
+    <ul class="nav-links">
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <p class="hero-eyebrow">Orlando · Winter Park · Lake Mary · Lake Nona · Windermere</p>
+    <h1 class="hero-headline">
+      Your vision.<br /><em>Crafted</em><br />to last.
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-sub">
+        Three generations of builders. 22 years of ground-up construction across Central Florida's most coveted neighborhoods. We build a limited number of homes each year — each one deserving of the name.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-gold">Start a Conversation</a>
+        <a href="#work" class="btn-outline-lt">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">22<span>yrs</span></div>
+      <div class="stat-label">Building in Central Florida</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">17<span>+</span></div>
+      <div class="stat-label">Homes in Active Pipeline</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">40<span>+</span></div>
+      <div class="stat-label">Years Combined Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Generations of Builders</div>
+    </div>
+  </div>
+
+  <!-- WHO WE ARE -->
+  <div class="who" id="about">
+    <div class="who-photo"></div>
+    <div class="who-text">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-headline">We build for people<br />who won't settle<br />for <em>close enough.</em></h2>
+      <p class="who-body">
+        Rainier Custom Homes works with a select number of clients each year — people who know what they want, know the neighborhood they want it in, and need a builder they can trust completely. Transparent pricing. Real timelines. No runaround. If that sounds like you, we should talk.
+      </p>
+      <a href="#contact" class="btn-dark" style="align-self:flex-start;">Start a Conversation</a>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h4>Custom. Truly Custom.</h4>
+      <p>No templates. No shortcuts. We build from your vision, your lot, and your standards — and we hold ourselves to every one of them from groundbreak to keys in hand.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h4>Transparent From Day One</h4>
+      <p>Straight pricing. Real timelines. You'll always know where your project stands — no surprises buried in change orders, no runaround when you ask a direct question.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h4>40+ Years of Craft</h4>
+      <p>Mark has been in construction longer than most builders have been licensed. That depth of experience isn't something you learn in a course. It shows in every detail.</p>
+    </div>
+  </div>
+
+  <!-- ACTIVE PROJECTS -->
+  <section class="projects" id="work">
+    <div class="projects-header">
+      <div>
+        <p class="section-label">Current Work</p>
+        <h2 class="section-headline">What we're<br /><em>building right now.</em></h2>
+      </div>
+      <p style="font-size:13px; color:var(--ink-mid); max-width:240px; text-align:right; line-height:1.85;">
+        17 homes currently in construction or permitting across Central Florida.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">In Permitting</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Colonialtown North</h3>
+          <p class="project-detail">Orlando, FL &nbsp;·&nbsp; 3,100 sq ft &nbsp;·&nbsp; Custom Spec</p>
+          <div class="project-price">
+            <span class="project-price-num">$1.3M</span>
+            <span class="project-price-label">List Price</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">In Development</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Country Club Road</h3>
+          <p class="project-detail">Lake Mary, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $1.0M</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">Under Construction</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Leesburg Estates</h3>
+          <p class="project-detail">Leesburg, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $320K</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="investor-quiet">
+      <p><strong>Working with investors.</strong> We partner selectively with investors who bring us lots or teardowns in the markets we know. If you have a site in mind, reach out — we're happy to walk through what it can become.</p>
+      <a href="#contact" class="btn-outline-dk" style="flex-shrink:0;">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- LEGACY -->
+  <section class="legacy" id="story">
+    <div class="legacy-text">
+      <p class="section-label">The Rainier Story</p>
+      <blockquote class="legacy-quote">
+        "Most builders start with a license.<br />Mark Smith started with his<br />grandfather's tools."
+      </blockquote>
+      <p class="legacy-body">
+        Charles Rainier built homes the way people used to — with patience, precision, and pride in what they left behind. His grandson Mark grew up watching, then working, then understanding. That obsession led Mark to the University of Miami on a football scholarship, a business degree, and an MBA from Florida Tech — and then back to construction. Not because he had to. Because nothing else was worth doing at that level.
+        <br /><br />
+        Today, Mark's son Austin runs every project alongside him. Three generations of people who chose building when they could have chosen anything else. That's not a marketing line. That's just who we are.
+      </p>
+      <a href="#contact" class="btn-gold" style="align-self:flex-start;">Build With Us</a>
+    </div>
+    <div class="legacy-photo"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-strip" id="contact">
+    <div class="contact-left">
+      <p class="section-label">Let's Talk</p>
+      <h2>Ready to build<br />something <em>remarkable?</em></h2>
+      <p>Tell us about your project — the neighborhood, the vision, the timeline. We'll take it from there.</p>
+      <div style="margin-top:32px; display:flex; flex-direction:column; gap:8px;">
+        <a href="tel:4072423515" style="font-size:14px; color:var(--ink-mid); text-decoration:none;">(407) 242-3515</a>
+        <a href="mailto:info@BuiltByRainier.com" style="font-size:14px; color:var(--ink-mid); text-decoration:none;">info@BuiltByRainier.com</a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Mark" />
+        </div>
+        <div class="contact-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="contact-field">
+        <label>Email</label>
+        <input type="email" placeholder="you@email.com" />
+      </div>
+      <div class="contact-field">
+        <label>What can we help you build?</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Custom Home — I have a lot</option>
+          <option>Custom Home — Still searching for a lot</option>
+          <option>Investor Partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="contact-field">
+        <label>Tell us about your project</label>
+        <textarea placeholder="Neighborhood, size, timeline, vision..."></textarea>
+      </div>
+      <a href="#" class="btn-gold" style="text-align:center;">Send Message</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <div class="footer-copy">© 2026 Rainier Custom Homes &nbsp;·&nbsp; Central Florida</div>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll behavior
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  </script>
+
+</body>
+</html>
