@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built by Rainier | Custom Home Builder — Orlando, Winter Park, Lake Nona, Windermere</title>
+  <meta name="description" content="Rainier Custom Homes has been building high-end custom homes across Central Florida since 2004. Serving Orlando, Winter Park, Lake Mary, Lake Nona, and Windermere." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero-full {
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.97) 0%,
+          rgba(51,43,34,0.65) 35%,
+          rgba(51,43,34,0.2) 70%,
+          rgba(51,43,34,0.0) 100%),
+        url('https://images.unsplash.com/photo-1524431144429-03fdd30eee26?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .hero-bottom {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 36px;
+    }
+
+    /* ── WHO WE ARE ── */
+    .who {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    .who-photo {
+      background-image:
+        linear-gradient(to right, rgba(232,224,212,0) 65%, rgba(232,224,212,1) 100%),
+        url('https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .who-text {
+      background: var(--bg);
+      padding: 100px 80px 100px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .who-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 480px;
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+
+    /* ── LEGACY TEASER ── */
+    .legacy-teaser {
+      background: var(--dark);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .legacy-quote {
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--ink-lt);
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule-gold);
+      margin-bottom: 36px;
+    }
+
+    .legacy-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .legacy-photo {
+      height: 480px;
+      background-image:
+        linear-gradient(to left, rgba(51,43,34,0) 55%, rgba(51,43,34,0.5) 100%),
+        url('https://images.unsplash.com/photo-1524431144429-03fdd30eee26?auto=format&fit=crop&w=900&q=80');
+      /* Replace with real Rainier family photo — cropped close */
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      background: var(--bg);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-left h2 {
+      font-size: clamp(36px, 4vw, 52px);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .contact-left p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 28px;
+    }
+
+    .contact-info a {
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      text-decoration: none;
+      line-height: 2;
+      transition: color 0.2s;
+    }
+    .contact-info a:hover { color: var(--gold); }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .who { grid-template-columns: 1fr; }
+      .who-photo { height: 300px; }
+      .who-text { padding: 60px 24px; }
+      .legacy-teaser { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .legacy-photo { height: 280px; }
+      .contact-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+      .contact-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo nav-logo--light">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--light">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-full" id="top">
+    <p class="hero-eyebrow" style="position:relative;">Orlando · Winter Park · Lake Mary · Lake Nona · Windermere</p>
+    <h1 class="hero-headline" style="position:relative;">Your vision.<br /><em>Crafted</em><br />to last.</h1>
+    <div class="hero-bottom">
+      <p class="hero-sub">Three generations of builders. 22 years of ground-up construction across Central Florida's most coveted neighborhoods. We build a limited number of homes each year — each one deserving of the name.</p>
+      <div style="display:flex; gap:14px; flex-shrink:0;">
+        <a href="contact.html" class="btn-gold">Start a Conversation</a>
+        <a href="work.html" class="btn-outline-lt">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">22<span>yrs</span></div>
+      <div class="stat-label">Building in Central Florida</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">17<span>+</span></div>
+      <div class="stat-label">Homes in Active Pipeline</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">40<span>+</span></div>
+      <div class="stat-label">Years Combined Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Generations of Builders</div>
+    </div>
+  </div>
+
+  <!-- WHO WE ARE -->
+  <div class="who">
+    <div class="who-photo"></div>
+    <div class="who-text">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-headline">We build for people who won't settle for <em>close enough.</em></h2>
+      <p class="who-body">Rainier Custom Homes works with a select number of clients each year — people who know what they want, know the neighborhood they want it in, and need a builder they can trust completely. Transparent pricing. Real timelines. No runaround.</p>
+      <a href="story.html" class="btn-dark" style="align-self:flex-start;">Our Story</a>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h4>Custom. Truly Custom.</h4>
+      <p>No templates. No shortcuts. We build from your vision, your lot, and your standards — and we hold ourselves to every one of them from groundbreak to keys in hand.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h4>Transparent From Day One</h4>
+      <p>Straight pricing. Real timelines. You'll always know where your project stands — no surprises buried in change orders, no runaround when you ask a direct question.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h4>40+ Years of Craft</h4>
+      <p>Mark has been in construction longer than most builders have been licensed. That depth of experience isn't something you learn in a course. It shows in every detail.</p>
+    </div>
+  </div>
+
+  <!-- ACTIVE PROJECTS -->
+  <section style="background:var(--bg-2); padding:100px 60px;" id="work">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; padding-bottom:48px; border-bottom:1px solid var(--rule);">
+      <div>
+        <p class="section-label">Current Work</p>
+        <h2 class="section-headline">What we're<br /><em>building right now.</em></h2>
+      </div>
+      <p style="font-size:13px; color:var(--ink-mid); max-width:220px; text-align:right; line-height:1.85;">17 homes currently in construction or permitting across Central Florida.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1647579350687-d409523aabcc?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">In Permitting</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Colonialtown North</h3>
+          <p class="project-detail">Orlando, FL &nbsp;·&nbsp; 3,100 sq ft &nbsp;·&nbsp; Custom Spec</p>
+          <div class="project-price">
+            <span class="project-price-num">$1.3M</span>
+            <span class="project-price-label">List Price</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">In Development</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Country Club Road</h3>
+          <p class="project-detail">Lake Mary, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $1.0M</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1647579350413-a6ada4e480ed?auto=format&fit=crop&w=800&q=80');">
+          <div class="project-img-overlay"></div>
+          <div class="project-img-status">Under Construction</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-location">Leesburg Estates</h3>
+          <p class="project-detail">Leesburg, FL &nbsp;·&nbsp; 6-Home Subdivision</p>
+          <div class="project-price">
+            <span class="project-price-num">From $320K</span>
+            <span class="project-price-label">Per Home</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="investor-quiet" style="margin-top:2px;">
+      <p><strong>Working with investors.</strong> We partner selectively with investors who bring us lots or teardowns in the markets we know. If you have a site in mind, reach out — we're happy to walk through what it can become.</p>
+      <a href="contact.html" class="btn-outline-dk" style="flex-shrink:0;">Get in Touch</a>
+    </div>
+
+    <div style="margin-top:48px; text-align:center;">
+      <a href="work.html" class="btn-dark">View All Projects</a>
+    </div>
+  </section>
+
+  <!-- LEGACY TEASER -->
+  <section class="legacy-teaser">
+    <div>
+      <p class="section-label section-label--dark">The Rainier Story</p>
+      <blockquote class="legacy-quote">"Most builders start with a license. Mark Smith started with his grandfather's tools."</blockquote>
+      <p class="legacy-body">Three generations. One standard. From Charles Rainier to Mark to Austin — this family didn't stumble into construction. They chose it, studied it, and built a business around it. That's not a selling point. That's just who we are.</p>
+      <a href="story.html" class="btn-gold">Read Our Story</a>
+    </div>
+    <div class="legacy-photo"></div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="contact-strip">
+    <div class="contact-left">
+      <p class="section-label">Let's Talk</p>
+      <h2>Ready to build something <em>remarkable?</em></h2>
+      <p>Tell us about your project — the neighborhood, the vision, the timeline. We'll take it from there.</p>
+      <div class="contact-info">
+        <a href="tel:4072423515">(407) 242-3515</a>
+        <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label>First Name</label>
+          <input type="text" placeholder="First name" />
+        </div>
+        <div class="contact-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name" />
+        </div>
+      </div>
+      <div class="contact-field">
+        <label>Email</label>
+        <input type="email" placeholder="you@email.com" />
+      </div>
+      <div class="contact-field">
+        <label>What can we help you build?</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Custom Home — I have a lot</option>
+          <option>Custom Home — Still searching for a lot</option>
+          <option>Investor Partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="contact-field">
+        <label>Tell us about your project</label>
+        <textarea placeholder="Neighborhood, size, timeline, vision..."></textarea>
+      </div>
+      <a href="contact.html" class="btn-gold" style="text-align:center;">Send Message</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>

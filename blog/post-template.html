@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO: Replace title, description, and og: tags for each post -->
+  <title>XXXXX Post Title | Rainier Custom Homes</title>
+  <meta name="description" content="XXXXX 155-character meta description targeting the post's primary keyword." />
+  <meta property="og:title" content="XXXXX Post Title | Built by Rainier" />
+  <meta property="og:description" content="XXXXX Same as meta description." />
+  <meta property="og:image" content="XXXXX Hero image URL" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://www.builtbyrainier.com/blog/XXXXX-slug.html" />
+
+  <!-- Structured data — Article schema for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "XXXXX Post Title",
+    "author": {
+      "@type": "Person",
+      "name": "XXXXX Author Name"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rainier Custom Homes",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.builtbyrainier.com/img/logo.png"
+      }
+    },
+    "datePublished": "XXXXX 2026-00-00",
+    "dateModified": "XXXXX 2026-00-00",
+    "image": "XXXXX Hero image URL"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* POST HERO */
+    .post-hero {
+      height: 56vh;
+      min-height: 380px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 60px 60px;
+      /* Replace this URL with each post's featured image */
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.96) 0%,
+          rgba(51,43,34,0.5) 55%,
+          rgba(51,43,34,0.08) 100%),
+        url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .post-hero-inner {
+      max-width: 840px;
+    }
+
+    .post-hero-cat {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .post-hero-title {
+      font-size: clamp(28px, 4vw, 54px);
+      font-weight: 300;
+      color: var(--ink-lt);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .post-hero-meta {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+    }
+
+    /* POST LAYOUT */
+    .post-layout {
+      background: var(--bg);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ARTICLE BODY */
+    .post-body {
+      max-width: 720px;
+    }
+
+    .post-lede {
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .post-body h2 {
+      font-size: 28px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    .post-body h3 {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    .post-body p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 24px 0;
+      padding-left: 20px;
+    }
+
+    .post-body li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+
+    .post-body blockquote {
+      margin: 40px 0;
+      padding: 28px 36px;
+      border-left: 2px solid var(--gold);
+      background: var(--bg-2);
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .post-body img {
+      width: 100%;
+      height: auto;
+      margin: 36px 0;
+      display: block;
+    }
+
+    .post-body .post-img-caption {
+      font-size: 11px;
+      color: var(--ink-mid);
+      text-align: center;
+      margin-top: -24px;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    /* Pull stat */
+    .post-stat {
+      background: var(--dark);
+      padding: 36px 40px;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .post-stat-num {
+      font-size: 52px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .post-stat-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.7);
+      line-height: 1.7;
+    }
+
+    /* Author card */
+    .author-card {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .author-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center top;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .author-title {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .author-bio {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* Related posts */
+    .related {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .related-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .related-card {
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+    }
+
+    .related-card-title {
+      font-size: 16px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.3;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .related-card-title:hover { color: var(--gold); }
+
+    .related-card-meta {
+      font-size: 11px;
+      color: var(--ink-mid);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* SIDEBAR */
+    .post-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .toc {
+      border: 1px solid var(--rule);
+      padding: 28px;
+      margin-bottom: 36px;
+    }
+
+    .toc-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .toc a {
+      display: block;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.45;
+      transition: color 0.2s;
+    }
+
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+
+    .sidebar-cta {
+      background: var(--dark);
+      padding: 32px 28px;
+      margin-bottom: 36px;
+    }
+
+    .sidebar-cta p {
+      font-size: 20px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink-lt);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-cta small {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      line-height: 1.7;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .post-layout { grid-template-columns: 1fr; padding: 60px 24px; gap: 60px; }
+      .post-hero { padding: 0 24px 48px; }
+      .post-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <a href="../index.html" class="nav-logo nav-logo--dark">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--dark">
+      <li><a href="../work.html">Our Work</a></li>
+      <li><a href="../story.html">Our Story</a></li>
+      <li><a href="index.html" style="color:var(--gold);">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- POST HERO -->
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <!-- Replace breadcrumb category and post details below -->
+      <p class="post-hero-cat">
+        <a href="index.html" style="color:rgba(196,153,106,0.6); text-decoration:none;">Blog</a>
+        &nbsp;/&nbsp; XXXXX Category
+      </p>
+      <h1 class="post-hero-title">XXXXX Post Title Goes Here — Target Your Primary Keyword</h1>
+      <p class="post-hero-meta">By XXXXX Author Name &nbsp;·&nbsp; XXXXX Month Year &nbsp;·&nbsp; XXXXX X min read</p>
+    </div>
+  </div>
+
+  <!-- POST LAYOUT -->
+  <div class="post-layout">
+
+    <!-- ARTICLE -->
+    <article class="post-body">
+
+      <!-- LEDE — italic pull paragraph, first thing reader sees -->
+      <p class="post-lede">XXXXX Opening lede — one compelling paragraph that hooks the reader and sets up the article. Should contain the primary keyword naturally.</p>
+
+      <!-- ═══════════════════════════════════════════════════════════════ -->
+      <!-- ARTICLE CONTENT STARTS HERE                                   -->
+      <!-- Copy this template file and replace all content below         -->
+      <!-- ═══════════════════════════════════════════════════════════════ -->
+
+      <h2 id="section-1">XXXXX First Section Heading (H2)</h2>
+      <p>XXXXX Body paragraph. Write at a level that's genuinely useful to someone researching this topic. 200–400 words per major section performs well for custom home / real estate keywords in Florida.</p>
+      <p>XXXXX Continue paragraph. Aim for one idea per paragraph. Short paragraphs scan better on mobile.</p>
+
+      <!-- Optional: pull stat block -->
+      <div class="post-stat">
+        <div class="post-stat-num">XXXXX</div>
+        <p class="post-stat-text">XXXXX Supporting statistic or pull quote that reinforces the section's point.</p>
+      </div>
+
+      <h2 id="section-2">XXXXX Second Section Heading</h2>
+      <p>XXXXX Body paragraph.</p>
+
+      <!-- Optional: image within post -->
+      <img src="XXXXX image URL" alt="XXXXX descriptive alt text with keyword" loading="lazy" />
+      <p class="post-img-caption">XXXXX Optional caption — what the reader is looking at.</p>
+
+      <h3>XXXXX Sub-heading (H3) — more specific angle on section 2</h3>
+      <p>XXXXX Body paragraph.</p>
+      <ul>
+        <li>XXXXX List item one</li>
+        <li>XXXXX List item two</li>
+        <li>XXXXX List item three</li>
+      </ul>
+
+      <h2 id="section-3">XXXXX Third Section Heading</h2>
+      <p>XXXXX Body paragraph.</p>
+
+      <!-- Optional: blockquote from Mark or Austin -->
+      <blockquote>
+        "XXXXX Quote from Mark or Austin that reinforces the article's point — makes the post feel authoritative and human."
+        <footer style="font-size:12px; font-style:normal; color:var(--ink-mid); margin-top:12px;">— XXXXX Name, Title, Rainier Custom Homes</footer>
+      </blockquote>
+
+      <h2 id="section-4">XXXXX Fourth Section / Conclusion</h2>
+      <p>XXXXX Conclusion paragraph. Summarize the key takeaway and naturally transition toward the CTA.</p>
+      <p>XXXXX Final paragraph with soft CTA — "If you're thinking about building in XXXXX neighborhood, we'd be happy to walk through your specific situation."</p>
+
+      <!-- ═══════════════════════════════════════════════════════════════ -->
+      <!-- END OF ARTICLE CONTENT                                         -->
+      <!-- ═══════════════════════════════════════════════════════════════ -->
+
+      <!-- AUTHOR CARD -->
+      <div class="author-card">
+        <div class="author-photo" style="
+          background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=200&q=80');
+          /* Replace with real headshot */"></div>
+        <div>
+          <p class="author-name">XXXXX Author Name</p>
+          <p class="author-title">XXXXX Title, Rainier Custom Homes</p>
+          <p class="author-bio">XXXXX Two-sentence bio. Austin or Mark — keep it human and specific. Mention years of experience or a specific angle relevant to the post topic.</p>
+        </div>
+      </div>
+
+      <!-- RELATED POSTS -->
+      <div class="related">
+        <p class="related-label">Keep Reading</p>
+        <div class="related-grid">
+          <div class="related-card">
+            <a class="related-card-title" href="XXXXX-slug.html">XXXXX Related Post Title One</a>
+            <p class="related-card-meta">XXXXX Category &nbsp;·&nbsp; XXXXX Month Year</p>
+          </div>
+          <div class="related-card">
+            <a class="related-card-title" href="XXXXX-slug.html">XXXXX Related Post Title Two</a>
+            <p class="related-card-meta">XXXXX Category &nbsp;·&nbsp; XXXXX Month Year</p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="post-sidebar">
+
+      <!-- TABLE OF CONTENTS -->
+      <div class="toc">
+        <p class="toc-label">In This Article</p>
+        <a href="#section-1">XXXXX Section One</a>
+        <a href="#section-2">XXXXX Section Two</a>
+        <a href="#section-3">XXXXX Section Three</a>
+        <a href="#section-4">XXXXX Section Four / Conclusion</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-cta">
+        <p>Building in Central Florida?</p>
+        <small>We're selective about who we work with — and that's exactly why our clients trust us.</small>
+        <a href="../contact.html" class="btn-gold" style="display:block; text-align:center;">Talk to Austin</a>
+      </div>
+
+      <!-- Recent posts -->
+      <div>
+        <p style="font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">More From the Blog</p>
+        <a href="custom-home-builder-winter-park-florida.html" style="display:block; font-size:13px; font-weight:300; color:var(--ink-mid); text-decoration:none; padding:10px 0; border-bottom:1px solid var(--rule); line-height:1.5; transition:color .2s;">What to Look for in a Custom Home Builder in Winter Park</a>
+        <a href="how-to-buy-a-lot-for-custom-home-orlando.html" style="display:block; font-size:13px; font-weight:300; color:var(--ink-mid); text-decoration:none; padding:10px 0; border-bottom:1px solid var(--rule); line-height:1.5; transition:color .2s;">How to Buy a Lot for a Custom Home in Orlando</a>
+        <a href="how-much-does-custom-home-cost-central-florida.html" style="display:block; font-size:13px; font-weight:300; color:var(--ink-mid); text-decoration:none; padding:10px 0; line-height:1.5; transition:color .2s;">How Much Does a Custom Home Cost in Central Florida?</a>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- BOTTOM CTA STRIP -->
+  <section style="background:var(--dark); padding:80px 60px; text-align:center;">
+    <p class="section-label section-label--dark">Ready to Start?</p>
+    <h2 class="section-headline" style="color:var(--ink-lt); margin:0 auto 20px; max-width:560px;">Stop researching. Start building.</h2>
+    <p style="font-size:14px; font-weight:300; color:rgba(245,240,232,0.5); max-width:400px; margin:0 auto 36px; line-height:1.85;">Austin responds personally to every inquiry. Tell us about your project and we'll tell you honestly what's possible.</p>
+    <a href="../contact.html" class="btn-gold">Begin the Conversation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="../work.html">Our Work</a></li>
+      <li><a href="../story.html">Our Story</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (nav.classList.contains('solid')) return;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>

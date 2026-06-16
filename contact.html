@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Rainier Custom Homes — Start Your Custom Build</title>
+  <meta name="description" content="Ready to build a custom home in Orlando, Winter Park, Lake Nona, or Windermere? Contact Rainier Custom Homes — Austin Smith responds to every inquiry directly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero-page {
+      background-image:
+        linear-gradient(to bottom,
+          rgba(51,43,34,0.85) 0%,
+          rgba(51,43,34,0.65) 100%),
+        url('https://images.unsplash.com/photo-1524431144429-03fdd30eee26?auto=format&fit=crop&w=1920&q=80');
+      min-height: 45vh;
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-main {
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      min-height: 680px;
+    }
+
+    .contact-sidebar {
+      background: var(--dark);
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-sidebar-top h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300;
+      color: var(--ink-lt);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .contact-sidebar-top p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.85;
+      margin-bottom: 48px;
+    }
+
+    .contact-method {
+      border-top: 1px solid var(--rule-gold);
+      padding-top: 24px;
+      margin-bottom: 28px;
+    }
+
+    .contact-method-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .contact-method a,
+    .contact-method p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink-lt);
+      text-decoration: none;
+      line-height: 1.5;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .contact-method a:hover { color: var(--gold); }
+
+    .contact-sidebar-bottom {
+      padding-top: 48px;
+      border-top: 1px solid rgba(196,153,106,0.15);
+    }
+
+    .contact-sidebar-bottom p {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.35);
+      line-height: 1.85;
+    }
+
+    /* FORM PANEL */
+    .contact-form-panel {
+      padding: 80px 70px;
+    }
+
+    .contact-form-panel h3 {
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .contact-form-panel .form-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group:last-of-type { margin-bottom: 0; }
+
+    .form-submit {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .form-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* LOCATIONS */
+    .locations {
+      background: var(--bg-2);
+      padding: 80px 60px;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .location-card {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .location-name {
+      font-size: 18px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .location-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* FAQ */
+    .faq-section {
+      background: var(--bg);
+      padding: 80px 60px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .faq-q {
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.85;
+    }
+
+    @media (max-width: 960px) {
+      .contact-main { grid-template-columns: 1fr; }
+      .contact-sidebar { padding: 60px 24px; }
+      .contact-form-panel { padding: 60px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .locations { padding: 60px 24px; }
+      .faq-section { padding: 60px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .locations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <a href="index.html" class="nav-logo nav-logo--dark">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--dark">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html" style="color:var(--gold);">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-page">
+    <p class="hero-eyebrow">Let's Talk</p>
+    <h1 class="hero-headline">Tell us what<br />you're <em>building.</em></h1>
+    <p class="hero-sub" style="max-width:480px;">Austin personally responds to every inquiry — usually within 24 hours. No automated replies, no hand-off. Just a real conversation about your project.</p>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <div class="contact-main">
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+      <div class="contact-sidebar-top">
+        <h2>Get in touch directly.</h2>
+        <p>We work with a limited number of clients at a time, so every conversation matters. Reach out however works best for you.</p>
+
+        <div class="contact-method">
+          <p class="contact-method-label">Phone / Text</p>
+          <a href="tel:4072423515">(407) 242-3515</a>
+        </div>
+
+        <div class="contact-method">
+          <p class="contact-method-label">Email</p>
+          <a href="mailto:austin@BuiltByRainier.com">austin@BuiltByRainier.com</a>
+          <a href="mailto:info@BuiltByRainier.com" style="font-size:13px; color:rgba(245,240,232,0.4); margin-top:4px;">info@BuiltByRainier.com</a>
+        </div>
+
+        <div class="contact-method">
+          <p class="contact-method-label">Office Address</p>
+          <p>XXXXX Address<br />XXXXX City, FL XXXXX</p>
+        </div>
+
+        <div class="contact-method">
+          <p class="contact-method-label">Hours</p>
+          <p>Monday – Friday, 8am – 6pm<br />Saturday by appointment</p>
+        </div>
+      </div>
+
+      <div class="contact-sidebar-bottom">
+        <p>Rainier Custom Homes is a licensed and insured General Contractor operating in Central Florida. GC License # XXXXX &nbsp;·&nbsp; Insurance: XXXXX</p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-panel">
+      <h3>Start a conversation.</h3>
+      <p class="form-sub">Whether you have a lot ready or just an idea in mind, we want to hear from you. Tell us what you're thinking and Austin will follow up.</p>
+
+      <div class="form-row">
+        <div class="contact-field">
+          <label>First Name</label>
+          <input type="text" placeholder="First name" />
+        </div>
+        <div class="contact-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="contact-field">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" />
+        </div>
+        <div class="contact-field">
+          <label>Phone</label>
+          <input type="tel" placeholder="(407) 000-0000" />
+        </div>
+      </div>
+
+      <div class="contact-field" style="margin-bottom:18px;">
+        <label>What best describes your project?</label>
+        <select>
+          <option value="">Select one</option>
+          <option>I have a lot and want to build a custom home</option>
+          <option>I'm looking for a lot in a specific neighborhood</option>
+          <option>I'm interested in an existing spec home</option>
+          <option>I'm an investor with a lot or teardown</option>
+          <option>Just exploring — want to learn more</option>
+        </select>
+      </div>
+
+      <div class="contact-field" style="margin-bottom:18px;">
+        <label>Which neighborhood or area?</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Orlando</option>
+          <option>Winter Park</option>
+          <option>Lake Nona</option>
+          <option>Lake Mary</option>
+          <option>Windermere</option>
+          <option>Leesburg</option>
+          <option>Other Central Florida</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="contact-field" style="margin-bottom:18px;">
+        <label>Approximate budget range</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Under $500K</option>
+          <option>$500K – $750K</option>
+          <option>$750K – $1M</option>
+          <option>$1M – $1.5M</option>
+          <option>$1.5M – $2M</option>
+          <option>$2M+</option>
+          <option>Investor — flexible depending on project</option>
+        </select>
+      </div>
+
+      <div class="contact-field" style="margin-bottom:0;">
+        <label>Tell us about your vision</label>
+        <textarea placeholder="Neighborhood, size, style, timeline — as much or as little as you know right now." style="height:130px;"></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-gold" style="cursor:pointer; border:none;">Send Message</button>
+        <p class="form-note">Austin responds personally,<br />usually within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKETS WE SERVE -->
+  <section class="locations">
+    <p class="section-label">Where We Build</p>
+    <h2 class="section-headline">Central Florida's<br /><em>best neighborhoods.</em></h2>
+
+    <div class="locations-grid">
+      <div class="location-card">
+        <p class="location-name">Orlando</p>
+        <p class="location-desc">Colonialtown North, College Park, Baldwin Park, Delaney Park — Orlando's most walkable and desirable urban neighborhoods.</p>
+      </div>
+      <div class="location-card">
+        <p class="location-name">Winter Park</p>
+        <p class="location-desc">One of Central Florida's most prestigious zip codes. Custom homes here demand the highest standards — and that's where we do our best work.</p>
+      </div>
+      <div class="location-card">
+        <p class="location-name">Lake Nona</p>
+        <p class="location-desc">One of the fastest-growing markets in Florida. Medical City, Laureate Park, and beyond — we understand what buyers here expect.</p>
+      </div>
+      <div class="location-card">
+        <p class="location-name">Lake Mary</p>
+        <p class="location-desc">Mature trees, top-rated Seminole County schools, established neighborhoods. We're currently building a 6-home subdivision here.</p>
+      </div>
+      <div class="location-card">
+        <p class="location-name">Windermere</p>
+        <p class="location-desc">Butler Chain lakes, large lots, and some of the most discerning custom-home buyers in Central Florida. A market we know well.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-headline" style="margin-bottom:0;">What most people <em>want to know first.</em></h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <p class="faq-q">Do I need to already own a lot?</p>
+        <p class="faq-a">No. We work with clients at every stage — if you have a lot, we can start planning immediately. If you're still searching, Austin has relationships with agents across Central Florida who know which lots are build-ready and what they can realistically support.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How many homes do you take on at once?</p>
+        <p class="faq-a">We intentionally limit our active builds to what we can oversee properly. We don't take on more work than we can manage at a high standard. If our pipeline is full, we'll tell you honestly and discuss timing.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What's the minimum budget you work with?</p>
+        <p class="faq-a">Our custom homes typically start around $500K all-in, depending on the market and scope. Investor subdivision homes can come in lower. The best first step is a real conversation about what you're trying to build.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do you work with investors?</p>
+        <p class="faq-a">Selectively, yes. Investors who bring us lots or teardowns in markets we already work in are a good fit. We're not looking for wholesalers or flip timelines — we're looking for investors who want quality builds and long-term relationships.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does a custom home take?</p>
+        <p class="faq-a">From permit approval to completion, most custom homes run XXXXX months depending on scope and municipality. We'll give you a realistic timeline at the start — and we hold to it.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Who will I be talking to day-to-day?</p>
+        <p class="faq-a">Austin Smith handles all client communication and project management. You'll have his direct number and email from day one. Mark is on every job site, but Austin is your primary point of contact — and he's reachable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (nav.classList.contains('solid')) return;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>

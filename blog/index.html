@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Rainier Custom Homes — Custom Home Building in Central Florida</title>
+  <meta name="description" content="Expert insights on custom home building in Orlando, Winter Park, Lake Nona, Lake Mary, and Windermere. From lot selection to finish choices — real advice from real builders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .hero-page {
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.92) 0%,
+          rgba(51,43,34,0.5) 60%,
+          rgba(51,43,34,0.12) 100%),
+        url('https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=1920&q=80');
+      min-height: 48vh;
+    }
+
+    /* Blog layout */
+    .blog-main {
+      background: var(--bg);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Posts */
+    .post-featured {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 60px;
+      margin-bottom: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .post-featured-img {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .post-cat {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .post-title {
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .post-title:hover { color: var(--gold); }
+
+    .post-excerpt {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    .post-meta {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    /* Post grid */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .post-card {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+
+    .post-card-img {
+      aspect-ratio: 16/9;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+    }
+
+    .post-card-title {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.3;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      transition: color 0.2s;
+    }
+
+    .post-card-title:hover { color: var(--gold); }
+
+    .post-card-excerpt {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 48px;
+    }
+
+    .sidebar-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .sidebar-link {
+      display: block;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      text-decoration: none;
+      line-height: 1;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s;
+    }
+
+    .sidebar-link:hover { color: var(--gold); }
+
+    .sidebar-cta {
+      background: var(--dark);
+      padding: 32px 28px;
+    }
+
+    .sidebar-cta p {
+      font-size: 20px;
+      font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink-lt);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-cta small {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      line-height: 1.7;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      gap: 8px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .page-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .page-btn.active,
+    .page-btn:hover { background: var(--dark); color: var(--gold); border-color: var(--dark); }
+
+    @media (max-width: 960px) {
+      .blog-main { grid-template-columns: 1fr; padding: 60px 24px; gap: 60px; }
+      .post-featured { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <a href="../index.html" class="nav-logo nav-logo--dark">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--dark">
+      <li><a href="../work.html">Our Work</a></li>
+      <li><a href="../story.html">Our Story</a></li>
+      <li><a href="index.html" style="color:var(--gold);">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-page">
+    <p class="hero-eyebrow">Insights &amp; Advice</p>
+    <h1 class="hero-headline">Building <em>knowledge</em><br />you can use.</h1>
+    <p class="hero-sub" style="max-width:520px;">Real-world guidance on custom home building in Central Florida — from people who do this for a living, not content marketers.</p>
+  </section>
+
+  <!-- BLOG MAIN -->
+  <div class="blog-main">
+    <div class="posts-column">
+
+      <!-- FEATURED POST -->
+      <div class="post-featured">
+        <div class="post-featured-img" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80');"></div>
+        <div>
+          <p class="post-cat">Custom Homes · Winter Park</p>
+          <a class="post-title" href="custom-home-builder-winter-park-florida.html">What to Look for in a Custom Home Builder in Winter Park, FL</a>
+          <p class="post-excerpt">Winter Park is one of Central Florida's most competitive real estate markets — and that means buyers have high expectations. Here's what separates a builder worth hiring from one that will cost you more in the long run.</p>
+          <p class="post-meta">Austin Smith &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; 8 min read</p>
+        </div>
+      </div>
+
+      <!-- POST GRID -->
+      <div class="posts-grid">
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1647579350687-d409523aabcc?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Lot Selection · Orlando</p>
+          <a class="post-card-title" href="how-to-buy-a-lot-for-custom-home-orlando.html">How to Buy a Lot for a Custom Home in Orlando</a>
+          <p class="post-card-excerpt">Not every lot is build-ready. Here's what to check before you put an offer in — and the costly mistakes we see buyers make in Orlando's infill markets.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Austin Smith &nbsp;·&nbsp; May 2026</p>
+        </div>
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1524431144429-03fdd30eee26?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Process · Budgeting</p>
+          <a class="post-card-title" href="how-much-does-custom-home-cost-central-florida.html">How Much Does a Custom Home Cost in Central Florida?</a>
+          <p class="post-card-excerpt">The honest answer: it depends. The useful answer: here are the real numbers, what drives costs up, and how to think about budget before you start talking to builders.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Mark Smith &nbsp;·&nbsp; April 2026</p>
+        </div>
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Neighborhoods · Lake Nona</p>
+          <a class="post-card-title" href="building-custom-home-lake-nona-florida.html">Building a Custom Home in Lake Nona: What You Need to Know</a>
+          <p class="post-card-excerpt">Lake Nona has HOA rules, deed restrictions, and design approval processes that catch first-time builders off guard. Here's how to navigate it.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Austin Smith &nbsp;·&nbsp; March 2026</p>
+        </div>
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1647579350413-a6ada4e480ed?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Process · GC vs. Design-Build</p>
+          <a class="post-card-title" href="gc-vs-design-build-custom-home-florida.html">GC vs. Design-Build: Which Is Right for Your Custom Home?</a>
+          <p class="post-card-excerpt">Both models can produce a great home. But they work very differently — and choosing the wrong one for your situation can add months and cost to your project.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Mark Smith &nbsp;·&nbsp; February 2026</p>
+        </div>
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Neighborhoods · Windermere</p>
+          <a class="post-card-title" href="custom-home-builder-windermere-florida.html">Building in Windermere: Butler Chain Lots, Setbacks, and What to Expect</a>
+          <p class="post-card-excerpt">Windermere's lakefront lots come with some of the most complex site restrictions in Central Florida. Here's what every buyer should understand before they start.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Austin Smith &nbsp;·&nbsp; January 2026</p>
+        </div>
+
+        <div class="post-card">
+          <div class="post-card-img" style="background-image:url('https://images.unsplash.com/photo-1647579350687-d409523aabcc?auto=format&fit=crop&w=700&q=80');"></div>
+          <p class="post-cat">Process · Permits</p>
+          <a class="post-card-title" href="custom-home-permit-timeline-orlando-florida.html">How Long Does It Take to Permit a Custom Home in Orange County?</a>
+          <p class="post-card-excerpt">Permitting delays are the number-one thing that extends custom home timelines in Central Florida. Here's what affects it — and how to plan accordingly.</p>
+          <p class="post-meta" style="font-size:11px; color:var(--ink-mid);">Austin Smith &nbsp;·&nbsp; December 2025</p>
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <a href="#" class="page-btn active">1</a>
+        <a href="#" class="page-btn">2</a>
+        <a href="#" class="page-btn">3</a>
+        <a href="#" class="page-btn" style="width:auto; padding:0 16px;">Next →</a>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <p class="sidebar-label">Topics</p>
+        <a class="sidebar-link" href="#">Custom Homes</a>
+        <a class="sidebar-link" href="#">Lot Selection</a>
+        <a class="sidebar-link" href="#">Budgeting &amp; Costs</a>
+        <a class="sidebar-link" href="#">Neighborhoods</a>
+        <a class="sidebar-link" href="#">Permits &amp; Process</a>
+        <a class="sidebar-link" href="#">Investors</a>
+        <a class="sidebar-link" href="#">Finishes &amp; Design</a>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Neighborhoods</p>
+        <a class="sidebar-link" href="#">Orlando</a>
+        <a class="sidebar-link" href="#">Winter Park</a>
+        <a class="sidebar-link" href="#">Lake Nona</a>
+        <a class="sidebar-link" href="#">Lake Mary</a>
+        <a class="sidebar-link" href="#">Windermere</a>
+      </div>
+
+      <div class="sidebar-cta">
+        <p>Ready to build?</p>
+        <small>We work with a limited number of clients. If you're serious, now is the time to reach out.</small>
+        <a href="../contact.html" class="btn-gold" style="display:block; text-align:center;">Start a Conversation</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="../work.html">Our Work</a></li>
+      <li><a href="../story.html">Our Story</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (nav.classList.contains('solid')) return;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>

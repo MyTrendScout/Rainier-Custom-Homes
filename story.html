@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story | Rainier Custom Homes — Mark & Austin Smith, Central Florida</title>
+  <meta name="description" content="Three generations of builders. Mark Smith founded Rainier Custom Homes in 2004 after a lifetime in construction. His son Austin now runs day-to-day operations. This is their story." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero-page {
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.95) 0%,
+          rgba(51,43,34,0.55) 50%,
+          rgba(51,43,34,0.15) 100%),
+        url('https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    /* FOUNDERS SPLIT */
+    .founders {
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .founder {
+      padding: 100px 70px;
+      border-right: 1px solid var(--rule);
+    }
+    .founder:last-child { border-right: none; }
+
+    .founder-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background-size: cover;
+      background-position: center top;
+      margin-bottom: 40px;
+    }
+
+    .founder-name {
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .founder-title {
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .founder-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.9;
+    }
+
+    .founder-body p { margin-bottom: 20px; }
+    .founder-body p:last-child { margin-bottom: 0; }
+
+    /* TIMELINE */
+    .timeline-section {
+      background: var(--dark);
+      padding: 100px 60px;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 88px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--rule-gold);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-year {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gold);
+      padding-top: 4px;
+      text-align: right;
+      padding-right: 28px;
+      position: relative;
+    }
+
+    .timeline-year::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .timeline-content h4 {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink-lt);
+      margin-bottom: 10px;
+    }
+
+    .timeline-content p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.85;
+    }
+
+    /* VALUES */
+    .values-section {
+      background: var(--bg-2);
+      padding: 100px 60px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .value {
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+    }
+
+    .value-num {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .value h4 {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .value p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.85;
+    }
+
+    /* SUBCONTRACTORS */
+    .trade-section {
+      background: var(--bg);
+      padding: 80px 60px;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .founders { grid-template-columns: 1fr; }
+      .founder { padding: 60px 24px; border-right: none; border-bottom: 1px solid var(--rule); }
+      .founder:last-child { border-bottom: none; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .timeline::before { left: 66px; }
+      .timeline-item { grid-template-columns: 70px 1fr; gap: 20px; }
+      .timeline-section { padding: 60px 24px; }
+      .values-section { padding: 60px 24px; }
+      .trade-section { padding: 60px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <a href="index.html" class="nav-logo nav-logo--dark">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--dark">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html" style="color:var(--gold);">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-page">
+    <p class="hero-eyebrow">Our Story</p>
+    <h1 class="hero-headline">Three generations.<br /><em>One standard.</em></h1>
+    <p class="hero-sub" style="max-width:560px;">Mark Smith didn't start a construction company — he continued a family tradition. His son Austin is doing the same thing. This is what that looks like when it's real.</p>
+  </section>
+
+  <!-- INTRO PULL QUOTE -->
+  <section style="background:var(--bg); padding:80px 60px; max-width:900px; margin:0 auto; text-align:center;">
+    <blockquote style="font-size:clamp(24px,3vw,38px); font-weight:300; font-style:italic; font-family:'Cormorant Garamond',serif; color:var(--ink); line-height:1.45; margin-bottom:24px;">
+      "Most builders start with a license. Mark Smith started with his grandfather's tools."
+    </blockquote>
+    <p style="font-size:14px; font-weight:300; color:var(--ink-mid); line-height:1.85; max-width:620px; margin:0 auto;">What started as watching and learning on job sites as a teenager became a 40-year career — and then a company. Rainier Custom Homes was built on the premise that a builder who cares about every nail, every frame, and every client relationship is worth waiting for.</p>
+  </section>
+
+  <!-- FOUNDERS -->
+  <div class="founders">
+    <!-- MARK -->
+    <div class="founder">
+      <div class="founder-photo" style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80');
+        /* Replace with real photo of Mark Smith */"></div>
+      <h2 class="founder-name">Mark Smith</h2>
+      <p class="founder-title">Founder &amp; General Contractor</p>
+      <div class="founder-body">
+        <p>Mark Smith grew up around construction. His grandfather XXXXX had been a builder before him, and Mark spent his teenage years watching, learning, and eventually doing — on job sites around XXXXX Florida.</p>
+        <p>After years working across residential and light commercial construction, Mark founded Rainier Custom Homes in XXXXX, building the company around three things he'd seen too many builders get wrong: transparency, craftsmanship, and actually returning a phone call.</p>
+        <p>Today Mark serves as the licensed general contractor behind every Rainier build. His name is on the permit. His standards are what every subcontractor is held to. When Mark says a home is done, it's done right.</p>
+        <p>Florida GC License: XXXXX</p>
+      </div>
+    </div>
+
+    <!-- AUSTIN -->
+    <div class="founder">
+      <div class="founder-photo" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80');
+        /* Replace with real photo of Austin Smith */"></div>
+      <h2 class="founder-name">Austin Smith</h2>
+      <p class="founder-title">Operations Director</p>
+      <div class="founder-body">
+        <p>Austin Smith didn't choose construction by accident. He grew up on job sites with his father, and by the time he was old enough to drive, he already understood how a house came together — from the foundation pour to the final trim.</p>
+        <p>Austin went on to earn a degree in Business Management from Lynn University in Boca Raton, bringing a formal understanding of operations, client management, and business development back to the family company. That combination — field experience from childhood, plus a business education — is what makes Austin effective.</p>
+        <p>Today Austin runs the day-to-day of Rainier Custom Homes: client communication, subcontractor scheduling, site management, and project coordination. When you work with Rainier, Austin is your primary point of contact — and he will always be reachable.</p>
+        <p>Contact Austin directly: <a href="tel:XXXXX" style="color:var(--gold); text-decoration:none;">XXXXX</a> or <a href="mailto:austin@BuiltByRainier.com" style="color:var(--gold); text-decoration:none;">austin@BuiltByRainier.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAMILY PHOTO STRIP -->
+  <div style="height:420px; background-image:
+      linear-gradient(to right, rgba(51,43,34,0.8) 0%, rgba(51,43,34,0.3) 40%, rgba(51,43,34,0.3) 60%, rgba(51,43,34,0.8) 100%),
+      url('https://images.unsplash.com/photo-1524431144429-03fdd30eee26?auto=format&fit=crop&w=1920&q=80');
+    /* Replace with real Rainier family group photo — cropped close */
+    background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center; text-align:center;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:16px;">The Smith Family · XXXXX Year</p>
+      <p style="font-size:clamp(20px,2.5vw,32px); font-weight:300; font-style:italic; font-family:'Cormorant Garamond',serif; color:var(--ink-lt); max-width:560px; line-height:1.45;">Family photo — awaiting real image from Austin</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <p class="section-label section-label--dark" style="text-align:center; margin-bottom:16px;">The Rainier Timeline</p>
+    <h2 class="section-headline" style="color:var(--ink-lt); text-align:center; margin-bottom:70px;">How we got <em>here.</em></h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">XXXXX</div>
+        <div class="timeline-content">
+          <h4>The Beginning</h4>
+          <p>XXXXX (grandfather / family history in construction — ask Austin for the full story behind the Rainier family's building roots).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">XXXXX</div>
+        <div class="timeline-content">
+          <h4>Mark's First Build</h4>
+          <p>XXXXX — Mark's first independent project. XXXXX details from Austin.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2004</div>
+        <div class="timeline-content">
+          <h4>Rainier Custom Homes Founded</h4>
+          <p>Mark officially launched Rainier Custom Homes, centering the company on ground-up custom construction across Central Florida's fastest-growing markets.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">XXXXX</div>
+        <div class="timeline-content">
+          <h4>Austin Joins the Business</h4>
+          <p>After graduating from Lynn University in Boca Raton with a Business Management degree, Austin joined Rainier full time — bringing formal operational structure to the business his father built.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h4>Austin Takes Day-to-Day Operations</h4>
+          <p>Austin now leads all client relationships, subcontractor management, and project oversight — freeing Mark to focus on what he's best at: getting the builds right.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <h4>17 Homes Active</h4>
+          <p>Rainier is currently running 17 homes in active construction or permitting across Orlando, Lake Mary, and Leesburg — the most active pipeline in company history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <p class="section-label" style="text-align:center;">What We Stand On</p>
+    <h2 class="section-headline" style="text-align:center; margin:0 auto 0; max-width:600px;">The things that don't change <em>no matter what.</em></h2>
+    <div class="values-grid">
+      <div class="value">
+        <p class="value-num">01</p>
+        <h4>Transparency</h4>
+        <p>You will always know where your budget stands, why a decision was made, and what comes next. No surprises buried in change orders.</p>
+      </div>
+      <div class="value">
+        <p class="value-num">02</p>
+        <h4>Accountability</h4>
+        <p>Mark's name is on every permit. That's not a formality — it's a commitment. If something is wrong, we fix it before we call it done.</p>
+      </div>
+      <div class="value">
+        <p class="value-num">03</p>
+        <h4>Craftsmanship</h4>
+        <p>We have long-term relationships with the subcontractors who meet our standard. The ones who don't don't come back.</p>
+      </div>
+      <div class="value">
+        <p class="value-num">04</p>
+        <h4>Selectivity</h4>
+        <p>We build a limited number of homes each year. That's not a scarcity tactic — it's how we make sure every client gets what they're paying for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE PARTNERS -->
+  <section class="trade-section">
+    <p class="section-label">Our Trade Partners</p>
+    <h2 class="section-headline" style="margin-bottom:20px;">Built with people <em>we trust.</em></h2>
+    <p style="font-size:14px; font-weight:300; color:var(--ink-mid); line-height:1.85; max-width:640px; margin-bottom:48px;">Every Rainier home is built with a network of vetted, experienced subcontractors who know our standards — and meet them, every time. We don't use whoever's available. We use who's right.</p>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
+      <div style="border:1px solid var(--rule); padding:24px 20px;">
+        <p style="font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Electrical</p>
+        <p style="font-size:16px; font-weight:300; color:var(--ink);">XXXXX Electrician / Company Name</p>
+      </div>
+      <div style="border:1px solid var(--rule); padding:24px 20px;">
+        <p style="font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Plumbing</p>
+        <p style="font-size:16px; font-weight:300; color:var(--ink);">XXXXX Plumbing Partner</p>
+      </div>
+      <div style="border:1px solid var(--rule); padding:24px 20px;">
+        <p style="font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">HVAC</p>
+        <p style="font-size:16px; font-weight:300; color:var(--ink);">XXXXX HVAC Partner</p>
+      </div>
+      <div style="border:1px solid var(--rule); padding:24px 20px;">
+        <p style="font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Framing</p>
+        <p style="font-size:16px; font-weight:300; color:var(--ink);">XXXXX Framing Crew</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--dark); padding:100px 60px; text-align:center;">
+    <p class="section-label section-label--dark">Work With Us</p>
+    <h2 class="section-headline" style="color:var(--ink-lt); margin:0 auto 24px; max-width:600px;">Ready to build with a team<br />you can <em>actually trust?</em></h2>
+    <p style="font-size:15px; font-weight:300; color:rgba(245,240,232,0.55); max-width:420px; margin:0 auto 40px; line-height:1.8;">We're selective about who we build for. Not because we're difficult — because good relationships make better homes.</p>
+    <a href="contact.html" class="btn-gold">Start a Conversation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (nav.classList.contains('solid')) return;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+
+</body>
+</html>
