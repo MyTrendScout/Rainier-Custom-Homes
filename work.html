@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Built by Rainier — Custom Homes, Central Florida</title>
+  <meta name="description" content="Explore the Built by Rainier portfolio — 13 custom homes across Central Florida. Modern farmhouses, estate builds, waterfront properties, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero-page {
+      background-image:
+        linear-gradient(to top,
+          rgba(51,43,34,0.88) 0%,
+          rgba(51,43,34,0.45) 60%,
+          rgba(51,43,34,0.15) 100%),
+        url('Projects/12 - Modern Farmhouse/B3_FullSizeRender.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Filter tabs */
+    .filter-bar {
+      background: var(--bg);
+      padding: 36px 60px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-right: 8px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--dark);
+      color: var(--gold);
+      border-color: var(--dark);
+    }
+
+    /* Main grid */
+    .work-grid {
+      background: var(--bg-2);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* Featured project */
+    .project-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 60px;
+      margin-bottom: 32px;
+    }
+    .project-featured-img {
+      background-size: cover;
+      background-position: center;
+    }
+    .project-featured-body {
+      background: var(--bg);
+      padding: 60px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-featured-tag {
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .project-featured-body h2 {
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+    .project-featured-body .project-meta {
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: var(--ink-mid);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .project-featured-body p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      max-width: 380px;
+      margin-bottom: 36px;
+    }
+    .project-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 32px;
+    }
+    .project-spec-label {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 6px;
+    }
+    .project-spec-val {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    /* Section headings */
+    .work-section-head {
+      grid-column: 1 / -1;
+      padding-top: 20px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .work-section-head h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300;
+      color: var(--ink);
+    }
+    .work-section-head p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 280px;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* Project cards */
+    .project-card {
+      background: var(--bg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+      transition: transform 0.3s;
+    }
+    .project-card:hover { transform: translateY(-4px); }
+    .project-img {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .project-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,22,14,0.55) 0%, transparent 60%);
+    }
+    .project-img-status {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 5px 12px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .project-body {
+      padding: 24px 28px 32px;
+      flex: 1;
+      border: 1px solid var(--rule);
+      border-top: none;
+    }
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .project-detail {
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+    .project-style-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,153,106,0.35);
+      padding: 4px 10px;
+    }
+
+    @media (max-width: 960px) {
+      .work-grid { grid-template-columns: 1fr; padding: 48px 24px; }
+      .project-featured { grid-template-columns: 1fr; }
+      .project-featured-img { height: 280px; }
+      .project-featured-body { padding: 40px 28px; }
+      .filter-bar { padding: 24px; }
+      .work-section-head { flex-direction: column; gap: 12px; }
+      .work-section-head p { text-align: left; max-width: 100%; }
+    }
+    @media (min-width: 961px) and (max-width: 1200px) {
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="solid">
+    <a href="index.html" class="nav-logo nav-logo--dark">Built <span>by</span> Rainier</a>
+    <ul class="nav-links nav-links--dark">
+      <li><a href="work.html" style="color:var(--gold);">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Start Building</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-page">
+    <p class="hero-eyebrow">Portfolio</p>
+    <h1 class="hero-headline">The <em>work</em><br />speaks for itself.</h1>
+    <p class="hero-sub" style="max-width:540px;">12 custom homes built across Central Florida — every one designed with intention and built without corners cut.</p>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-label">Browse by style:</span>
+    <button class="filter-btn active">All Projects</button>
+    <button class="filter-btn">Modern</button>
+    <button class="filter-btn">Traditional</button>
+    <button class="filter-btn">Craftsman</button>
+    <button class="filter-btn">Waterfront</button>
+    <button class="filter-btn">Estate</button>
+    <button class="filter-btn">Cottage</button>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="work-grid">
+
+    <!-- Section Header -->
+    <div class="work-section-head">
+      <div>
+        <p class="section-label" style="margin-bottom:10px;">Signature Work</p>
+        <h2>Our most recognized <em>build.</em></h2>
+      </div>
+      <p>The home that put a name to the style. Widely regarded as our most talked-about project to date.</p>
+    </div>
+
+    <!-- FEATURED: The Rainier -->
+    <div class="project-featured">
+      <div class="project-featured-img" style="background-image:url('Projects/13 - Modern Farmhouse Cedar/B3_IMG_7438.jpeg');"></div>
+      <div class="project-featured-body">
+        <p class="project-featured-tag">Signature Build · Modern Farmhouse · Central Florida</p>
+        <h2>The Rainier</h2>
+        <p class="project-meta">Custom New Construction · Completed</p>
+        <p>Cedar meets clean white stucco. Natural wood cabinetry, a statement black shiplap fireplace wall, and a master bath tiled floor to ceiling in botanical stone. The Rainier is the home we point to when someone asks what we're capable of.</p>
+        <div class="project-specs">
+          <div>
+            <div class="project-spec-label">Style</div>
+            <div class="project-spec-val">Modern Farmhouse</div>
+          </div>
+          <div>
+            <div class="project-spec-label">Status</div>
+            <div class="project-spec-val">Completed</div>
+          </div>
+          <div>
+            <div class="project-spec-label">Type</div>
+            <div class="project-spec-val">Custom Build</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-dark" style="align-self:flex-start;">Build Something Like This</a>
+      </div>
+    </div>
+
+    <!-- Section: Completed Homes -->
+    <div class="work-section-head" style="margin-top:20px;">
+      <div>
+        <p class="section-label" style="margin-bottom:10px;">Completed Homes</p>
+        <h2>Delivered <em>and lived in.</em></h2>
+      </div>
+      <p>Eleven more completed homes. Every photo is real — no renders, no staging tricks.</p>
+    </div>
+
+    <!-- 1. The Meridian -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/01 - Stone & Stucco Estate/B2_5.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Meridian</div>
+        <p class="project-detail">Estate · Custom New Construction</p>
+        <span class="project-style-tag">Stone & Stucco</span>
+      </div>
+    </div>
+
+    <!-- 2. Garrison Hill -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/04 - Yellow Colonial/B2_30.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Garrison Hill</div>
+        <p class="project-detail">Colonial Estate · Custom Build</p>
+        <span class="project-style-tag">Traditional</span>
+      </div>
+    </div>
+
+    <!-- 3. Ironwood Manor -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/07 - Grand Two-Story/B1_IMG_2067.JPG');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Ironwood Manor</div>
+        <p class="project-detail">Grand Two-Story · Custom Build</p>
+        <span class="project-style-tag">Traditional</span>
+      </div>
+    </div>
+
+    <!-- 4. Lake Crest -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/10 - Lakefront Home/B1_ABC67E07.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Lake Crest</div>
+        <p class="project-detail">Waterfront Estate · Custom Build</p>
+        <span class="project-style-tag">Waterfront</span>
+      </div>
+    </div>
+
+    <!-- 5. Villa Senna -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/08 - Mediterranean Estate/B1_D0949D92-9BAF-4847-AE4A-C54CB38C9D6C.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Villa Senna</div>
+        <p class="project-detail">Mediterranean Estate · Custom Build</p>
+        <span class="project-style-tag">Mediterranean</span>
+      </div>
+    </div>
+
+    <!-- 6. The Harbor House -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/03 - Keys-Style Two-Story/B2_25.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Harbor House</div>
+        <p class="project-detail">Coastal Two-Story · Custom Build</p>
+        <span class="project-style-tag">Coastal</span>
+      </div>
+    </div>
+
+    <!-- 8. The Shore House -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/06 - Coastal New Construction/B0_IMG_3211.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Shore House</div>
+        <p class="project-detail">Coastal New Construction · Custom Build</p>
+        <span class="project-style-tag">Coastal · Craftsman</span>
+      </div>
+    </div>
+
+    <!-- 9. The Mosstone -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/02 - 450 Cottage/B2_13.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Mosstone</div>
+        <p class="project-detail">Cottage Remodel · Central Florida</p>
+        <span class="project-style-tag">Cottage</span>
+      </div>
+    </div>
+
+    <!-- 10. The Blueprint -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/11 - Blue Craftsman/B1_8D55A158-D3AD-44F2-B201-BAF4EBA2DE15.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Blueprint</div>
+        <p class="project-detail">Craftsman New Build · Custom Construction</p>
+        <span class="project-style-tag">Craftsman</span>
+      </div>
+    </div>
+
+    <!-- 11. The Slate -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/09 - Dark Modern Two-Story/B1_IMG_2539.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Slate</div>
+        <p class="project-detail">Modern Two-Story · Custom Build</p>
+        <span class="project-style-tag">Modern</span>
+      </div>
+    </div>
+
+    <!-- 12. The Cobalt -->
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('Projects/05 - Blue Ranch/B1_IMG_1540.jpg');">
+        <div class="project-img-overlay"></div>
+        <div class="project-img-status">Completed</div>
+      </div>
+      <div class="project-body">
+        <div class="project-name">The Cobalt</div>
+        <p class="project-detail">New Construction Ranch · Custom Build</p>
+        <span class="project-style-tag">Ranch</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:var(--dark); padding:100px 60px;">
+    <p class="section-label section-label--dark" style="text-align:center; margin-bottom:60px;">What Our Clients Say</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px; max-width:1100px; margin:0 auto;">
+      <div style="border-top:1px solid var(--rule-gold); padding-top:32px;">
+        <p style="font-size:15px; font-weight:300; font-style:italic; color:var(--ink-lt); line-height:1.8; margin-bottom:24px;">"Austin listened to what we wanted, pushed back when it made the house better, and delivered on every promise. We'd build with him again without hesitation."</p>
+        <p style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);">Client — Central Florida</p>
+      </div>
+      <div style="border-top:1px solid var(--rule-gold); padding-top:32px;">
+        <p style="font-size:15px; font-weight:300; font-style:italic; color:var(--ink-lt); line-height:1.8; margin-bottom:24px;">"The level of finish we got was beyond what we expected at this price point. Every detail, right down to the tile work, was exactly what we asked for."</p>
+        <p style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);">Client — Central Florida</p>
+      </div>
+      <div style="border-top:1px solid var(--rule-gold); padding-top:32px;">
+        <p style="font-size:15px; font-weight:300; font-style:italic; color:var(--ink-lt); line-height:1.8; margin-bottom:24px;">"We interviewed four builders. Built by Rainier was the only one who came to that first meeting already thinking about our lot. That told us everything."</p>
+        <p style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);">Client — Central Florida</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--bg); padding:100px 60px; text-align:center;">
+    <p class="section-label" style="text-align:center;">Ready to Start?</p>
+    <h2 class="section-headline" style="margin:0 auto 24px; max-width:640px;">Your home should be on this list.</h2>
+    <p style="font-size:15px; font-weight:300; color:var(--ink-mid); max-width:480px; margin:0 auto 40px; line-height:1.8;">We work with a limited number of clients at a time. If you're serious about building in Central Florida, let's talk now.</p>
+    <a href="contact.html" class="btn-gold">Begin the Conversation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Built <span>by</span> Rainier</div>
+    <ul class="footer-nav">
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="story.html">Our Story</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="tel:4072423515">(407) 242-3515</a>
+      <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
+    </div>
+  </footer>
+  <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+    <p class="footer-copy" style="margin-top:6px; opacity:0.4; font-size:0.7rem;">Developed &amp; managed by <a href="https://takeholdmedia.com" target="_blank" style="color:inherit;">TakeHold Media</a></p>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (nav.classList.contains('solid')) return;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
