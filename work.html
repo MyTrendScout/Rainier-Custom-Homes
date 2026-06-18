@@ -244,6 +244,76 @@
     @media (min-width: 961px) and (max-width: 1200px) {
       .work-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(18,13,9,0.97);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lb-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.6);
+      font-size: 36px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    #lb-close:hover { color: var(--gold); }
+    #lb-meta {
+      position: absolute;
+      top: 28px;
+      left: 40px;
+    }
+    #lb-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-lt);
+    }
+    #lb-counter {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+    #lb-img {
+      max-height: 82vh;
+      max-width: 80vw;
+      object-fit: contain;
+      display: block;
+    }
+    .lb-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.4);
+      font-size: 56px;
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 1;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .lb-arrow:hover { color: var(--gold); }
+    #lb-prev { left: 0; }
+    #lb-next { right: 0; }
+
+    .project-card { cursor: pointer; }
+    .project-featured { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -292,7 +362,7 @@
     </div>
 
     <!-- FEATURED: The Rainier -->
-    <div class="project-featured">
+    <div class="project-featured" data-project="rainier">
       <div class="project-featured-img" style="background-image:url('Projects/13 - Modern Farmhouse Cedar/B3_IMG_7438.jpeg');"></div>
       <div class="project-featured-body">
         <p class="project-featured-tag">Signature Build · Modern Farmhouse · Central Florida</p>
@@ -327,7 +397,7 @@
     </div>
 
     <!-- 1. The Meridian -->
-    <div class="project-card">
+    <div class="project-card" data-project="meridian">
       <div class="project-img" style="background-image:url('Projects/01 - Stone & Stucco Estate/B2_5.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -340,7 +410,7 @@
     </div>
 
     <!-- 2. Garrison Hill -->
-    <div class="project-card">
+    <div class="project-card" data-project="garrison">
       <div class="project-img" style="background-image:url('Projects/04 - Yellow Colonial/B2_30.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -353,7 +423,7 @@
     </div>
 
     <!-- 3. Ironwood Manor -->
-    <div class="project-card">
+    <div class="project-card" data-project="ironwood">
       <div class="project-img" style="background-image:url('Projects/07 - Grand Two-Story/B1_IMG_2067.JPG');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -366,7 +436,7 @@
     </div>
 
     <!-- 4. Lake Crest -->
-    <div class="project-card">
+    <div class="project-card" data-project="lakecrest">
       <div class="project-img" style="background-image:url('Projects/10 - Lakefront Home/B1_ABC67E07.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -379,7 +449,7 @@
     </div>
 
     <!-- 5. Villa Senna -->
-    <div class="project-card">
+    <div class="project-card" data-project="villa">
       <div class="project-img" style="background-image:url('Projects/08 - Mediterranean Estate/B1_D0949D92-9BAF-4847-AE4A-C54CB38C9D6C.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -392,7 +462,7 @@
     </div>
 
     <!-- 6. The Harbor House -->
-    <div class="project-card">
+    <div class="project-card" data-project="harbor">
       <div class="project-img" style="background-image:url('Projects/03 - Keys-Style Two-Story/B2_25.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -405,7 +475,7 @@
     </div>
 
     <!-- 8. The Shore House -->
-    <div class="project-card">
+    <div class="project-card" data-project="shore">
       <div class="project-img" style="background-image:url('Projects/06 - Coastal New Construction/B0_IMG_3211.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -418,7 +488,7 @@
     </div>
 
     <!-- 9. The Mosstone -->
-    <div class="project-card">
+    <div class="project-card" data-project="mosstone">
       <div class="project-img" style="background-image:url('Projects/02 - 450 Cottage/B2_13.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -431,7 +501,7 @@
     </div>
 
     <!-- 10. The Blueprint -->
-    <div class="project-card">
+    <div class="project-card" data-project="blueprint">
       <div class="project-img" style="background-image:url('Projects/11 - Blue Craftsman/B1_8D55A158-D3AD-44F2-B201-BAF4EBA2DE15.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -444,7 +514,7 @@
     </div>
 
     <!-- 11. The Slate -->
-    <div class="project-card">
+    <div class="project-card" data-project="slate">
       <div class="project-img" style="background-image:url('Projects/09 - Dark Modern Two-Story/B1_IMG_2539.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -457,7 +527,7 @@
     </div>
 
     <!-- 12. The Cobalt -->
-    <div class="project-card">
+    <div class="project-card" data-project="cobalt">
       <div class="project-img" style="background-image:url('Projects/05 - Blue Ranch/B1_IMG_1540.jpg');">
         <div class="project-img-overlay"></div>
         <div class="project-img-status">Completed</div>
@@ -517,6 +587,18 @@
     <p class="footer-copy" style="margin-top:6px; opacity:0.4; font-size:0.7rem;">Developed &amp; managed by <a href="https://takeholdmedia.com" target="_blank" style="color:inherit;">TakeHold Media</a></p>
   </div>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <div id="lb-meta">
+      <div id="lb-title"></div>
+      <div id="lb-counter"></div>
+    </div>
+    <button id="lb-close">&#215;</button>
+    <button class="lb-arrow" id="lb-prev">&#8249;</button>
+    <img id="lb-img" src="" alt="" />
+    <button class="lb-arrow" id="lb-next">&#8250;</button>
+  </div>
+
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -529,6 +611,112 @@
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
       });
+    });
+
+    // Project photo data
+    const projects = {
+      rainier: {
+        name: 'The Rainier',
+        photos: [
+          'Projects/13 - Modern Farmhouse Cedar/B3_IMG_7438.jpeg',
+          'Projects/13 - Modern Farmhouse Cedar/B3_FullSizeRender_5.jpeg',
+          'Projects/12 - Modern Farmhouse/B3_FullSizeRender.jpeg',
+          'Projects/12 - Modern Farmhouse/B3_FullSizeRender_1.jpeg',
+          'Projects/12 - Modern Farmhouse/B3_FullSizeRender_2.jpeg',
+          'Projects/12 - Modern Farmhouse/B3_FullSizeRender_3.jpeg',
+          'Projects/12 - Modern Farmhouse/B1_1C00605A.jpg',
+          'Projects/12 - Modern Farmhouse/B1_6D246F0A.jpg'
+        ]
+      },
+      meridian: {
+        name: 'The Meridian',
+        photos: ['Projects/01 - Stone & Stucco Estate/B2_1.jpg','Projects/01 - Stone & Stucco Estate/B2_2.jpg','Projects/01 - Stone & Stucco Estate/B2_3.jpg','Projects/01 - Stone & Stucco Estate/B2_4.jpg','Projects/01 - Stone & Stucco Estate/B2_5.jpg','Projects/01 - Stone & Stucco Estate/B2_6.jpg','Projects/01 - Stone & Stucco Estate/B2_7.jpg','Projects/01 - Stone & Stucco Estate/B2_8.jpg','Projects/01 - Stone & Stucco Estate/B2_9.jpg']
+      },
+      garrison: {
+        name: 'Garrison Hill',
+        photos: ['Projects/04 - Yellow Colonial/B2_30.jpg','Projects/04 - Yellow Colonial/B2_31.jpg','Projects/04 - Yellow Colonial/B2_32.jpg','Projects/04 - Yellow Colonial/B2_33.jpg','Projects/04 - Yellow Colonial/B2_34.jpg','Projects/04 - Yellow Colonial/B2_35.jpg','Projects/04 - Yellow Colonial/B2_36.jpg','Projects/04 - Yellow Colonial/B2_37.jpg','Projects/04 - Yellow Colonial/B2_38.jpg','Projects/04 - Yellow Colonial/B2_39.jpg']
+      },
+      ironwood: {
+        name: 'Ironwood Manor',
+        photos: ['Projects/07 - Grand Two-Story/B1_IMG_2067.JPG','Projects/07 - Grand Two-Story/B1_IMG_2083.JPG','Projects/07 - Grand Two-Story/B1_IMG_2087.JPG','Projects/07 - Grand Two-Story/B1_IMG_2094.JPG','Projects/07 - Grand Two-Story/B1_IMG_2099.JPG','Projects/07 - Grand Two-Story/B1_553E71D6-D1B6-4FB5-A4BD-21665AA521FD.jpg','Projects/07 - Grand Two-Story/B1_C2213D17-5018-4210-8C8F-04CA690224A4.jpg']
+      },
+      lakecrest: {
+        name: 'Lake Crest',
+        photos: ['Projects/10 - Lakefront Home/B1_ABC67E07.jpg','Projects/10 - Lakefront Home/B1_IMG_4841.jpg']
+      },
+      villa: {
+        name: 'Villa Senna',
+        photos: ['Projects/08 - Mediterranean Estate/B1_D0949D92-9BAF-4847-AE4A-C54CB38C9D6C.jpg','Projects/08 - Mediterranean Estate/B1_IMG_4706.jpg','Projects/08 - Mediterranean Estate/B1_4E369663-04B3-40C5-A854-3C6C77AE0A0F.jpg','Projects/08 - Mediterranean Estate/B1_F4A22B24-E458-458D-8D5E-FF80A8C6698B.jpg']
+      },
+      harbor: {
+        name: 'The Harbor House',
+        photos: ['Projects/03 - Keys-Style Two-Story/B2_20.jpg','Projects/03 - Keys-Style Two-Story/B2_21.jpg','Projects/03 - Keys-Style Two-Story/B2_22.jpg','Projects/03 - Keys-Style Two-Story/B2_23.jpg','Projects/03 - Keys-Style Two-Story/B2_24.jpg','Projects/03 - Keys-Style Two-Story/B2_25.jpg','Projects/03 - Keys-Style Two-Story/B2_26.jpg','Projects/03 - Keys-Style Two-Story/B2_27.jpg','Projects/03 - Keys-Style Two-Story/B2_28.jpg','Projects/03 - Keys-Style Two-Story/B2_29.jpg']
+      },
+      shore: {
+        name: 'The Shore House',
+        photos: ['Projects/06 - Coastal New Construction/B1_IMG_3195.jpg','Projects/06 - Coastal New Construction/B1_IMG_3202.jpg','Projects/06 - Coastal New Construction/B0_IMG_3211.jpg','Projects/06 - Coastal New Construction/B0_IMG_3204.jpg','Projects/06 - Coastal New Construction/B0_IMG_3207.jpg','Projects/06 - Coastal New Construction/B0_IMG_3215.jpg','Projects/06 - Coastal New Construction/B0_IMG_3220.jpg','Projects/06 - Coastal New Construction/B0_IMG_3221.jpg','Projects/06 - Coastal New Construction/B0_IMG_3222.jpg','Projects/06 - Coastal New Construction/B0_IMG_3225.jpg','Projects/06 - Coastal New Construction/B0_IMG_3227.jpg','Projects/06 - Coastal New Construction/B0_IMG_3229.jpg','Projects/06 - Coastal New Construction/B0_IMG_3231.jpg','Projects/06 - Coastal New Construction/B0_IMG_3235.jpg','Projects/06 - Coastal New Construction/B0_IMG_3238.jpg','Projects/06 - Coastal New Construction/B0_IMG_3246.jpg','Projects/06 - Coastal New Construction/B0_IMG_3253.jpg','Projects/06 - Coastal New Construction/B1_IMG_3244.jpg']
+      },
+      mosstone: {
+        name: 'The Mosstone',
+        photos: ['Projects/02 - 450 Cottage/B2_10.jpg','Projects/02 - 450 Cottage/B2_11.jpg','Projects/02 - 450 Cottage/B2_12.jpg','Projects/02 - 450 Cottage/B2_13.jpg','Projects/02 - 450 Cottage/B2_14.jpg','Projects/02 - 450 Cottage/B2_15.jpg','Projects/02 - 450 Cottage/B2_16.jpg','Projects/02 - 450 Cottage/B2_17.jpg','Projects/02 - 450 Cottage/B2_18.jpg','Projects/02 - 450 Cottage/B2_19.jpg']
+      },
+      blueprint: {
+        name: 'The Blueprint',
+        photos: ['Projects/11 - Blue Craftsman/B1_8D55A158.jpg','Projects/11 - Blue Craftsman/B3_FullSizeRender_4.jpeg']
+      },
+      slate: {
+        name: 'The Slate',
+        photos: ['Projects/09 - Dark Modern Two-Story/B1_IMG_2539.jpg']
+      },
+      cobalt: {
+        name: 'The Cobalt',
+        photos: ['Projects/05 - Blue Ranch/B1_IMG_1540.jpg','Projects/05 - Blue Ranch/B2_40.jpg']
+      }
+    };
+
+    // Lightbox logic
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbTitle = document.getElementById('lb-title');
+    const lbCounter = document.getElementById('lb-counter');
+    let current = 0, active = [];
+
+    function openLightbox(key) {
+      const p = projects[key];
+      if (!p) return;
+      active = p.photos;
+      current = 0;
+      lbTitle.textContent = p.name;
+      showPhoto();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showPhoto() {
+      lbImg.src = active[current];
+      lbCounter.textContent = (current + 1) + ' / ' + active.length;
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => { current = (current - 1 + active.length) % active.length; showPhoto(); });
+    document.getElementById('lb-next').addEventListener('click', () => { current = (current + 1) % active.length; showPhoto(); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowRight') { current = (current + 1) % active.length; showPhoto(); }
+      if (e.key === 'ArrowLeft') { current = (current - 1 + active.length) % active.length; showPhoto(); }
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    document.querySelectorAll('[data-project]').forEach(el => {
+      el.addEventListener('click', () => openLightbox(el.dataset.project));
     });
   </script>
 
