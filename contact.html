@@ -256,13 +256,13 @@
 
         <div class="contact-method">
           <p class="contact-method-label">Email</p>
-          <a href="mailto:austin@BuiltByRainier.com">austin@BuiltByRainier.com</a>
+          <a href="mailto:austinsmith@BuiltByRainier.com">austinsmith@BuiltByRainier.com</a>
           <a href="mailto:info@BuiltByRainier.com" style="font-size:13px; color:rgba(245,240,232,0.4); margin-top:4px;">info@BuiltByRainier.com</a>
         </div>
 
         <div class="contact-method">
           <p class="contact-method-label">Office Address</p>
-          <p>XXXXX Address<br />XXXXX City, FL XXXXX</p>
+          <p>2116 E Central Blvd<br />Orlando, FL 32803</p>
         </div>
 
         <div class="contact-method">
@@ -272,40 +272,45 @@
       </div>
 
       <div class="contact-sidebar-bottom">
-        <p>Rainier Custom Homes is a licensed and insured General Contractor operating in Central Florida. GC License # XXXXX &nbsp;·&nbsp; Insurance: XXXXX</p>
+        <p>Rainier Custom Homes builds under a Florida State Certified Building Contractor license held by Rainier Construction Inc. &nbsp;·&nbsp; License # CBC1254103</p>
       </div>
     </div>
 
     <!-- FORM -->
-    <div class="contact-form-panel" id="form">
+    <form class="contact-form-panel" id="form" action="https://formsubmit.co/info@builtbyrainier.com" method="POST">
+      <input type="hidden" name="_subject" value="New website inquiry (Contact page) — Built by Rainier" />
+      <input type="hidden" name="_next" value="https://builtbyrainier.com/thanks.html" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <h3>Start a conversation.</h3>
       <p class="form-sub">Whether you have a lot ready or just an idea in mind, we want to hear from you. Tell us what you're thinking and Austin will follow up.</p>
 
       <div class="form-row">
         <div class="contact-field">
           <label>First Name</label>
-          <input type="text" placeholder="First name" />
+          <input type="text" name="first_name" required placeholder="First name" />
         </div>
         <div class="contact-field">
           <label>Last Name</label>
-          <input type="text" placeholder="Last name" />
+          <input type="text" name="last_name" placeholder="Last name" />
         </div>
       </div>
 
       <div class="form-row">
         <div class="contact-field">
           <label>Email</label>
-          <input type="email" placeholder="you@email.com" />
+          <input type="email" name="email" required placeholder="you@email.com" />
         </div>
         <div class="contact-field">
           <label>Phone</label>
-          <input type="tel" placeholder="(407) 000-0000" />
+          <input type="tel" name="phone" placeholder="(407) 000-0000" />
         </div>
       </div>
 
       <div class="contact-field" style="margin-bottom:18px;">
         <label>What best describes your project?</label>
-        <select>
+        <select name="project_type">
           <option value="">Select one</option>
           <option>I have a lot and want to build a custom home</option>
           <option>I'm looking for a lot in a specific neighborhood</option>
@@ -317,7 +322,7 @@
 
       <div class="contact-field" style="margin-bottom:18px;">
         <label>Which neighborhood or area?</label>
-        <select>
+        <select name="area">
           <option value="">Select one</option>
           <option>Orlando</option>
           <option>Winter Park</option>
@@ -332,7 +337,7 @@
 
       <div class="contact-field" style="margin-bottom:18px;">
         <label>Approximate budget range</label>
-        <select>
+        <select name="budget">
           <option value="">Select one</option>
           <option>Under $500K</option>
           <option>$500K – $750K</option>
@@ -346,14 +351,14 @@
 
       <div class="contact-field" style="margin-bottom:0;">
         <label>Tell us about your vision</label>
-        <textarea placeholder="Neighborhood, size, style, timeline — as much or as little as you know right now." style="height:130px;"></textarea>
+        <textarea name="message" placeholder="Neighborhood, size, style, timeline — as much or as little as you know right now." style="height:130px;"></textarea>
       </div>
 
       <div class="form-submit">
         <button type="submit" class="btn-gold" style="cursor:pointer; border:none;">Send Message</button>
         <p class="form-note">Austin responds personally,<br />usually within 24 hours.</p>
       </div>
-    </div>
+    </form>
   </div>
 
   <!-- MARKETS WE SERVE -->
@@ -409,7 +414,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">How long does a custom home take?</p>
-        <p class="faq-a">From permit approval to completion, most custom homes run XXXXX months depending on scope and municipality. We'll give you a realistic timeline at the start — and we hold to it.</p>
+        <p class="faq-a">It depends on the home's size, scope and municipality. We'll give you a realistic timeline at the start — and we hold to it.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Who will I be talking to day-to-day?</p>
@@ -433,7 +438,7 @@
     </div>
   </footer>
   <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
-    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # CBC1254103</p>
     <p class="footer-copy" style="margin-top:6px; opacity:0.4; font-size:0.7rem;">Developed &amp; managed by <a href="https://takeholdmedia.com" target="_blank" style="color:inherit;">TakeHold Media</a></p>
   </div>
 

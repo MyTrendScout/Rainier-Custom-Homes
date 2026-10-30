@@ -328,24 +328,29 @@
         <a href="mailto:info@BuiltByRainier.com">info@BuiltByRainier.com</a>
       </div>
     </div>
-    <div class="contact-right">
+    <form class="contact-right" action="https://formsubmit.co/info@builtbyrainier.com" method="POST">
+      <input type="hidden" name="_subject" value="New website inquiry (Homepage) — Built by Rainier" />
+      <input type="hidden" name="_next" value="https://builtbyrainier.com/thanks.html" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div class="contact-row">
         <div class="contact-field">
           <label>First Name</label>
-          <input type="text" placeholder="First name" />
+          <input type="text" name="first_name" required placeholder="First name" />
         </div>
         <div class="contact-field">
           <label>Last Name</label>
-          <input type="text" placeholder="Last name" />
+          <input type="text" name="last_name" placeholder="Last name" />
         </div>
       </div>
       <div class="contact-field">
         <label>Email</label>
-        <input type="email" placeholder="you@email.com" />
+        <input type="email" name="email" required placeholder="you@email.com" />
       </div>
       <div class="contact-field">
         <label>What can we help you build?</label>
-        <select>
+        <select name="project_type">
           <option value="">Select one</option>
           <option>Custom Home — I have a lot</option>
           <option>Custom Home — Still searching for a lot</option>
@@ -355,10 +360,10 @@
       </div>
       <div class="contact-field">
         <label>Tell us about your project</label>
-        <textarea placeholder="Neighborhood, size, timeline, vision..."></textarea>
+        <textarea name="message" placeholder="Neighborhood, size, timeline, vision..."></textarea>
       </div>
-      <a href="contact.html" class="btn-gold" style="text-align:center;">Send Message</a>
-    </div>
+      <button type="submit" class="btn-gold" style="text-align:center; cursor:pointer; border:none;">Send Message</button>
+    </form>
   </section>
 
   <!-- FOOTER -->
@@ -376,7 +381,7 @@
     </div>
   </footer>
   <div style="background:var(--dark); padding:16px 60px; border-top:1px solid rgba(196,153,106,0.08);">
-    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # XXXXX</p>
+    <p class="footer-copy">© 2026 Rainier Custom Homes · Central Florida · License # CBC1254103</p>
     <p class="footer-copy" style="margin-top:6px; opacity:0.4; font-size:0.7rem;">Developed & managed by <a href="https://takeholdmedia.com" target="_blank" style="color:inherit;">TakeHold Media</a></p>
   </div>
 
