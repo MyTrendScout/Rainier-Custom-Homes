@@ -60,6 +60,9 @@
       margin-top: 36px;
     }
 
+    .hero-actions { display:flex; flex-direction:column; align-items:flex-end; gap:18px; flex-shrink:0; }
+    @media (max-width: 960px) { .hero-actions { align-items:flex-start; } }
+
     /* ── WHO WE ARE ── */
     .who {
       display: grid;
@@ -213,9 +216,12 @@
     <h1 class="hero-headline" style="position:relative;">Your vision.<br /><em>Crafted</em><br />to last.</h1>
     <div class="hero-bottom">
       <p class="hero-sub">Three generations of builders. 22 years of ground-up construction across Central Florida's most coveted neighborhoods. We build a limited number of homes each year — each one deserving of the name.</p>
-      <div style="display:flex; gap:14px; flex-shrink:0;">
-        <a href="contact.html" class="btn-gold">Start a Conversation</a>
-        <a href="work.html" class="btn-outline-lt">View Our Work</a>
+      <div class="hero-actions">
+        <div style="display:flex; gap:14px; flex-shrink:0;">
+          <a href="contact.html" class="btn-gold">Start a Conversation</a>
+          <a href="work.html" class="btn-outline-lt">View Our Work</a>
+        </div>
+        <a class="p2h-badge" href="https://www.papertohome.com/contractors/brevard/rainier-construction-inc" title="Rainier Construction Inc on Paper to Home" aria-label="Licensed, find us on Paper to Home. License CBC1254103"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 3 50 10v18c0 14-9 23-22 26C15 51 6 42 6 28V10Z" fill="#1B2A4A" stroke="#C9A24B" stroke-width="2.5"/><g transform="translate(28 27)" fill="none" stroke="#E2C07A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-11 2 0 -8l11 10"/><path d="M-8 0v10h16V0"/></g></svg><span class="p2h-badge-text"><span class="p2h-badge-kicker">Licensed · Find us on</span><span class="p2h-badge-name">Paper to Home</span><span class="p2h-badge-lic">Lic. CBC1254103</span></span></a>
       </div>
     </div>
   </section>
