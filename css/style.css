@@ -128,21 +128,42 @@ nav.solid {
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.4s;
 }
 
 .nav-logo--light { color: var(--ink-lt); }
-.nav-logo--dark  { color: var(--ink); }
-.nav-logo span   { color: var(--gold); }
+.nav-logo--dark  { color: var(--dark); }
 
 nav.scrolled .nav-logo,
-nav.solid .nav-logo { color: var(--ink); }
+nav.solid .nav-logo { color: var(--dark); }
+
+/* Logo: R mark + wordmark. Light colors over the hero and footer, dark on the cream bar. */
+.nav-logo, .footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.13em;
+  white-space: nowrap;
+}
+.logo-r {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  padding-right: 13px;
+  border-right: 1.5px solid var(--gold);
+  transition: color 0.4s;
+}
+.nav-logo--light .logo-r { color: var(--gold-lt); }
+.nav-logo--dark .logo-r,
+nav.scrolled .nav-logo .logo-r,
+nav.solid .nav-logo .logo-r { color: var(--gold-dim); }
+.footer-brand .logo-r { color: var(--gold-lt); }
 
 .nav-links {
   display: flex;
@@ -479,14 +500,9 @@ footer {
 }
 
 .footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-lt);
 }
-.footer-brand span { color: var(--gold); }
 
 .footer-nav {
   display: flex;
@@ -612,6 +628,8 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
+  .nav-logo, .footer-brand { font-size: 15px; gap: 10px; }
+  .logo-r { font-size: 26px; padding-right: 10px; }
   nav { padding: 20px 24px; }
   nav .nav-links { display: none; }
   nav .nav-cta { display: none; }
